@@ -37,6 +37,7 @@
       <small>Южный берег Крыма</small>
     </a>
     <nav class="nav-desktop" aria-label="Основная навигация">
+      <a href="#video">Видео</a>
       <a href="#about">Дом</a>
       <a href="#features">Особенности</a>
       <a href="#floors">Планировка</a>
@@ -54,6 +55,7 @@
 <!-- ================= MOBILE NAV OVERLAY ================= -->
 <nav class="nav-overlay" aria-label="Мобильная навигация">
   <ul>
+    <li><a href="#video">Видео</a></li>
     <li><a href="#about">Дом</a></li>
     <li><a href="#features">Особенности</a></li>
     <li><a href="#floors">Планировка</a></li>
@@ -96,6 +98,25 @@
           </div>
           <div class="hero__scroll" data-reveal><span class="dot"></span> Листайте вниз</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEO ================= -->
+  <section class="section section-dark section-line-top" id="video">
+    <div class="container">
+      <div class="kicker-row">
+        <h2 class="h-display reveal-lines">Видео о доме</h2>
+        <p class="lede" data-reveal>Пролёт над участком, фасад со всех сторон и интерьеры — до личного просмотра или 3D-тура.</p>
+      </div>
+      <div class="video-frame" data-reveal>
+        <video
+          controls
+          preload="metadata"
+          playsinline
+          poster="assets/images/photo-sunset-mountain.jpg">
+          <source src="assets/video/villa-mishor-tour.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </section>
@@ -214,23 +235,33 @@
       </figure>
 
       <figure class="g-card ph">
+        <img src="assets/images/photo-facade-day.jpg" alt="Фасад виллы днём на фоне хребта Ай-Петри" loading="lazy" />
+        <figcaption><b>Фасад и терраса</b>Цилиндрическая башня и деревянные экраны приватности</figcaption>
+      </figure>
+
+      <figure class="g-card ph is-tall">
+        <img src="assets/images/photo-living-room.jpg" alt="Гостиная с деревянной отделкой стен" loading="lazy" />
+        <figcaption><b>Гостиная</b>Общая зона для всей семьи, отделка натуральным деревом</figcaption>
+      </figure>
+
+      <figure class="g-card ph">
+        <img src="assets/images/photo-rooftop-terrace.jpg" alt="Терраса на крыше с деревянной перголой и видом на горы" loading="lazy" />
+        <figcaption><b>Кровля и пергола</b>Смотровая терраса на крыше с круговым видом</figcaption>
+      </figure>
+
+      <figure class="g-card ph is-tall">
+        <img src="assets/images/photo-bedroom.jpg" alt="Спальня с панорамным окном в закатном свете" loading="lazy" />
+        <figcaption><b>Спальня</b>Приватный уровень с панорамным остеклением</figcaption>
+      </figure>
+
+      <figure class="g-card ph">
         <img src="assets/images/photo-sunset-mountain.jpg" alt="Вилла на закате на фоне хребта Ай-Петри" loading="lazy" />
         <figcaption><b>Вид на Ай-Петри</b>Дом на фоне горного массива в закатном свете</figcaption>
       </figure>
 
       <figure class="g-card ph is-tall">
-        <img src="assets/images/photo-site-plan.jpg" alt="Вид сверху на участок и расположение дома" loading="lazy" />
-        <figcaption><b>Участок 5 соток</b>Расположение дома, двора и бассейна на закрытой территории</figcaption>
-      </figure>
-
-      <figure class="g-card ph">
-        <img src="assets/images/photo-aerial-day.jpg" alt="Дом с высоты среди сосен и кипарисов над морем" loading="lazy" />
-        <figcaption><b>Кровля и пергола</b>Смотровая терраса на крыше среди крымских сосен</figcaption>
-      </figure>
-
-      <figure class="g-card ph is-tall">
-        <img src="assets/images/photo-facade-dusk.jpg" alt="Вход и фасад дома в сумерках" loading="lazy" />
-        <figcaption><b>Вечерний свет</b>Панорамное остекление гостиной в сумерках</figcaption>
+        <img src="assets/images/photo-site-plan.jpg" alt="Вид сверху на дом и прилегающий район Южного берега" loading="lazy" />
+        <figcaption><b>Участок на Южном берегу</b>Дом среди кипарисов, рядом дорога и спуск к морю</figcaption>
       </figure>
 
     </div>
@@ -247,7 +278,7 @@
       <div class="tour" data-reveal>
         <div class="tour__media ph">
           <span class="badge-360">360° тур</span>
-          <img src="assets/images/photo-aerial-day.jpg" alt="Превью 3D-тура по вилле Мисхор" loading="lazy" />
+          <img src="assets/images/photo-facade-day.jpg" alt="Превью 3D-тура по вилле Мисхор" loading="lazy" />
           <a class="play magnetic" href="https://3d-tur.ru/360/viila-miskhor/" target="_blank" rel="noopener" aria-label="Открыть 3D-тур">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </a>
@@ -307,9 +338,9 @@
 
         <div class="floor-visual ph">
           <img data-floor-img="1" src="assets/images/photo-site-plan.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s" alt="Нижний этаж — гараж и кладовые" />
-          <img data-floor-img="2" src="assets/images/photo-pool-deck.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Средний этаж — гостиная и терраса с бассейном" />
-          <img data-floor-img="3" src="assets/images/photo-facade-dusk.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Верхний этаж — спальни и башня" />
-          <img data-floor-img="4" src="assets/images/photo-sunset-mountain.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Кровля — терраса с перголой" />
+          <img data-floor-img="2" src="assets/images/photo-living-room.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Средний этаж — гостиная и терраса с бассейном" />
+          <img data-floor-img="3" src="assets/images/photo-bedroom.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Верхний этаж — спальни и башня" />
+          <img data-floor-img="4" src="assets/images/photo-rooftop-terrace.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Кровля — терраса с перголой" />
         </div>
       </div>
     </div>
@@ -404,6 +435,7 @@
         <div class="footer-col">
           <h4>Навигация</h4>
           <ul>
+            <li><a href="#video">Видео</a></li>
             <li><a href="#about">Дом</a></li>
             <li><a href="#features">Особенности</a></li>
             <li><a href="#floors">Планировка</a></li>

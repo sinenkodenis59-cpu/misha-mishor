@@ -647,6 +647,21 @@ svg{ display:block; }
 }
 .g-card figcaption b{ display:block; font-family:var(--ff-display); font-size:1.05rem; font-weight:500; margin-bottom:2px; }
 
+/* ---------- video section ---------- */
+.video-frame{
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(244,239,230,.18);
+  background:#000;
+}
+.video-frame video{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  max-height:80vh;
+  background:#000;
+}
+
 /* ---------- tour cta ---------- */
 .tour{
   display:grid;
