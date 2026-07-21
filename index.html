@@ -103,11 +103,11 @@
   </section>
 
   <!-- ================= VIDEO ================= -->
-  <section class="section section-dark section-line-top" id="video">
-    <div class="container">
-      <div class="kicker-row">
-        <h2 class="h-display reveal-lines">Видео о доме</h2>
-        <p class="lede" data-reveal>Пролёт над участком, фасад со всех сторон и интерьеры — до личного просмотра или 3D-тура.</p>
+  <section class="section section-dark section-line-top section-tight" id="video">
+    <div class="container video-section">
+      <div class="video-heading" data-reveal>
+        <div class="eyebrow">Видео о доме</div>
+        <h2 class="h-display reveal-lines">Дом в движении</h2>
       </div>
       <div class="video-frame" data-reveal>
         <video
@@ -117,6 +117,7 @@
           poster="assets/images/photo-sunset-mountain.jpg">
           <source src="assets/video/villa-mishor-tour.mp4" type="video/mp4" />
         </video>
+        <span class="video-badge">Видео · 1:51</span>
       </div>
     </div>
   </section>
@@ -127,10 +128,13 @@
       <div class="intro__sticky">
         <div class="intro__num">01 — О доме</div>
         <h2 class="intro__title h-display reveal-lines">Частный семейный дом у моря</h2>
+        <figure class="intro__photo ph" data-reveal>
+          <img src="assets/images/photo-facade-day.jpg" alt="Фасад виллы Мисхор днём на фоне Ай-Петри" loading="lazy" />
+        </figure>
       </div>
       <div class="intro__body">
         <p data-reveal>Этот дом задуман не как инвестиционный объект, а как место для жизни одной семьи на несколько поколений — с отдельным этажом для родителей, общей гостиной для всех и двором, где безопасно играть детям.</p>
-        <p data-reveal>Три этажа спроектированы по принципу «свой уровень для каждого сценария жизни»: нижний — приезд, гараж и кладовые; средний — общая кухня-гостиная с выходом на террасу и бассейн; верхний — приватные спальни и мастер-спальня в цилиндрической башне с собственным балконом.</p>
+        <p data-reveal>Дом стоит на цокольном уровне с техническими помещениями и трёх жилых этажах: первый — входная группа и лестница, второй — терраса с бассейном и жилые комнаты, а мансарда в цилиндрической башне — приватный верхний ярус с собственным балконом.</p>
         <p data-reveal>Крыша дома — это ещё одна полноценная терраса: деревянная пергола, зона отдыха и вид, который меняется каждый час — от утреннего тумана над садом Юсуповского дворца до вечернего света на скалах Ай-Петри.</p>
         <p data-reveal>Дом стоит в пгт. Алупка, в пешей доступности от Юсуповского дворца и парка, а статус ИЖС даёт официальную регистрацию — то есть это действительно постоянный дом, а не сезонная дача.</p>
       </div>
@@ -293,58 +297,103 @@
     </div>
   </section>
 
-  <!-- ================= FLOORS ================= -->
+  <!-- ================= FLOORS / ПЛАНИРОВКА И ГЕНПЛАН ================= -->
   <section class="section section-line-top" id="floors">
     <div class="container">
       <div class="kicker-row">
-        <h2 class="h-display reveal-lines">Планировка по этажам</h2>
-        <p class="lede" data-reveal>240 м² основной площади и 540 м² вместе с террасами распределены на три уровня плюс эксплуатируемую кровлю.</p>
+        <h2 class="h-display reveal-lines">Планировка и генплан</h2>
+        <p class="lede" data-reveal>Официальные чертежи проекта М1:100 — цокольный уровень и три жилых этажа в цилиндрической башне, связанные единой винтовой лестницей.</p>
       </div>
 
       <div class="floors">
         <div class="floor-tabs">
           <button class="floor-tab" data-floor="1" aria-controls="floor-panel-1" aria-expanded="false">
-            <span><span class="fnum">01</span> <b>Нижний этаж</b></span>
+            <span><span class="fnum">01</span> <b>Подвал</b></span>
             <svg class="farrow" width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
           </button>
           <div class="floor-tab-panel" id="floor-panel-1">
-            <p>Гараж, техническое помещение и кладовые. Отдельный въезд и вход к бассейну и двору — весь хозяйственный контур дома скрыт от жилых уровней.</p>
+            <p>Цокольный уровень с несколькими техническими помещениями и отдельным входом — по проекту кладовые и хозяйственный блок дома, не входящие в счёт «3 этажей».</p>
           </div>
 
           <button class="floor-tab" data-floor="2" aria-controls="floor-panel-2" aria-expanded="false">
-            <span><span class="fnum">02</span> <b>Средний этаж</b></span>
+            <span><span class="fnum">02</span> <b>Первый этаж</b></span>
             <svg class="farrow" width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
           </button>
           <div class="floor-tab-panel" id="floor-panel-2">
-            <p>Общая гостиная-кухня с панорамным остеклением, выход на террасу с бассейном из массива дерева. Сердце дома для всей семьи и гостей.</p>
+            <p>Входная группа и цилиндрическая лестничная клетка, которая винтом связывает все уровни дома — от подвала до мансарды.</p>
           </div>
 
           <button class="floor-tab" data-floor="3" aria-controls="floor-panel-3" aria-expanded="false">
-            <span><span class="fnum">03</span> <b>Верхний этаж</b></span>
+            <span><span class="fnum">03</span> <b>Второй этаж</b></span>
             <svg class="farrow" width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
           </button>
           <div class="floor-tab-panel" id="floor-panel-3">
-            <p>Спальни с приватными балконами и мастер-спальня в цилиндрической башне — собственный панорамный эркер с видом на море и сад дворца.</p>
+            <p>Основной жилой уровень: по чертежу — терраса с бассейном и жилые комнаты с эркером в цилиндрической башне.</p>
           </div>
 
           <button class="floor-tab" data-floor="4" aria-controls="floor-panel-4" aria-expanded="false">
-            <span><span class="fnum">04</span> <b>Кровля</b></span>
+            <span><span class="fnum">04</span> <b>Мансарда</b></span>
             <svg class="farrow" width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
           </button>
           <div class="floor-tab-panel" id="floor-panel-4">
-            <p>Эксплуатируемая терраса с деревянной перголой и зоной отдыха — верхняя точка дома с круговым видом на море, Ай-Петри и парк.</p>
+            <p>Верхний ярус в цилиндрической башне под кровлей — там же выход на эксплуатируемую террасу с перголой.</p>
+          </div>
+
+          <div class="floor-source-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v5h5M6 3h8l5 5v13H6z"/><path d="M9 13h6M9 17h6"/></svg>
+            Чертежи проекта, масштаб М1:100. Нажмите на чертёж, чтобы увеличить.
           </div>
         </div>
 
-        <div class="floor-visual ph">
-          <img data-floor-img="1" src="assets/images/photo-site-plan.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s" alt="Нижний этаж — гараж и кладовые" />
-          <img data-floor-img="2" src="assets/images/photo-living-room.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Средний этаж — гостиная и терраса с бассейном" />
-          <img data-floor-img="3" src="assets/images/photo-bedroom.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Верхний этаж — спальни и башня" />
-          <img data-floor-img="4" src="assets/images/photo-rooftop-terrace.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s;opacity:0" alt="Кровля — терраса с перголой" />
+        <div class="floor-visual-wrap">
+          <div class="floor-visual-toggle" role="tablist" aria-label="Чертёж или фото">
+            <button class="fv-toggle-btn is-active" data-mode="plan" type="button">Чертёж</button>
+            <button class="fv-toggle-btn" data-mode="photo" type="button">Фото</button>
+          </div>
+          <div class="floor-visual" data-mode="plan">
+            <div class="plan-layer">
+              <img data-floor-plan="1" data-lightbox src="assets/images/plan-basement.png" alt="Чертёж плана подвала, масштаб М1:100" class="is-active" />
+              <img data-floor-plan="2" data-lightbox src="assets/images/plan-floor1.png" alt="Чертёж плана первого этажа, масштаб М1:100" />
+              <img data-floor-plan="3" data-lightbox src="assets/images/plan-floor2.png" alt="Чертёж плана второго этажа, масштаб М1:100" />
+              <img data-floor-plan="4" data-lightbox src="assets/images/plan-mansard.png" alt="Чертёж плана мансардного этажа, масштаб М1:100" />
+              <span class="plan-scale">M 1:100</span>
+              <span class="plan-zoom-hint">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+                Увеличить
+              </span>
+            </div>
+            <div class="photo-layer ph">
+              <img data-floor-img="1" src="assets/images/photo-site-plan.jpg" alt="Нижний уровень — вид на участок" class="is-active" />
+              <img data-floor-img="2" src="assets/images/photo-living-room.jpg" alt="Первый этаж — входная группа" />
+              <img data-floor-img="3" src="assets/images/photo-pool-deck.jpg" alt="Второй этаж — терраса с бассейном" />
+              <img data-floor-img="4" src="assets/images/photo-rooftop-terrace.jpg" alt="Мансарда — терраса с перголой" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- участок / site context ---- -->
+      <div class="site-block" data-reveal>
+        <div class="site-block__media ph">
+          <img src="assets/images/photo-aerial-day.jpg" alt="Аэрофото участка — дом среди кипарисов над морем" loading="lazy" />
+        </div>
+        <div class="site-block__body">
+          <div class="eyebrow">Участок</div>
+          <h3 class="h-display" style="font-size:1.6rem;margin-top:12px">5 соток на склоне, ИЖС</h3>
+          <p>Дом расположен на закрытом участке с перепадом высоты к морю — отсюда цокольный уровень и въезд с верхней точки участка. Аэрофото показывает реальное расположение дома, дороги и зелени вокруг.</p>
+          <p class="note-inline">Подробный генплан участка с границами и посадкой дома — предоставляется застройщиком по запросу на показе.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ================= LIGHTBOX (chertyozh viewer) ================= -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Закрыть">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <img class="lightbox__img" src="" alt="" />
+  </div>
 
   <!-- ================= LOCATION ================= -->
   <section class="section section-line-top" id="location">
@@ -361,6 +410,11 @@
           <div class="location__item" data-reveal><b>Центр Ялты</b><span>≈ 15–20 минут на авто</span></div>
         </div>
         <p class="note-inline">Расстояния приведены ориентировочно, по расположению пгт. Алупка на Южном берегу Крыма.</p>
+
+        <figure class="location__photo ph" data-reveal>
+          <img src="assets/images/photo-sunset-mountain.jpg" alt="Вид на хребет Ай-Петри от дома на закате" loading="lazy" />
+          <figcaption>Вид на Ай-Петри от дома, закат</figcaption>
+        </figure>
       </div>
 
       <div class="map-frame" data-reveal>

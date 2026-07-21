@@ -269,10 +269,11 @@
     });
   }
 
-  /* ---------------- floor accordion ---------------- */
+  /* ---------------- floor accordion (chertyozh + photo layers) ---------------- */
   function initFloors() {
     var tabs = document.querySelectorAll(".floor-tab");
-    var visualImgs = document.querySelectorAll(".floor-visual [data-floor-img]");
+    var planImgs = document.querySelectorAll(".floor-visual [data-floor-plan]");
+    var photoImgs = document.querySelectorAll(".floor-visual [data-floor-img]");
     if (!tabs.length) return;
     tabs.forEach(function (tab) {
       var panel = document.getElementById(tab.getAttribute("aria-controls"));
@@ -287,13 +288,57 @@
           tab.setAttribute("aria-expanded", "true");
           if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
           var floorId = tab.getAttribute("data-floor");
-          visualImgs.forEach(function (img) {
-            img.style.opacity = img.getAttribute("data-floor-img") === floorId ? 1 : 0;
+          planImgs.forEach(function (img) {
+            img.classList.toggle("is-active", img.getAttribute("data-floor-plan") === floorId);
+          });
+          photoImgs.forEach(function (img) {
+            img.classList.toggle("is-active", img.getAttribute("data-floor-img") === floorId);
           });
         }
       });
     });
     tabs[0] && tabs[0].click();
+
+    var visual = document.querySelector(".floor-visual");
+    var toggleBtns = document.querySelectorAll(".fv-toggle-btn");
+    if (visual && toggleBtns.length) {
+      toggleBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          toggleBtns.forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          visual.setAttribute("data-mode", btn.getAttribute("data-mode"));
+        });
+      });
+    }
+  }
+
+  /* ---------------- lightbox for chertyozh (technical plan) viewing ---------------- */
+  function initLightbox() {
+    var lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+    var img = lightbox.querySelector(".lightbox__img");
+    var closeBtn = lightbox.querySelector(".lightbox__close");
+
+    function open(src, alt) {
+      img.src = src;
+      img.alt = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+      if (lenis) lenis.stop();
+    }
+    function close() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      if (lenis) lenis.start();
+    }
+    document.querySelectorAll("[data-lightbox]").forEach(function (el) {
+      el.addEventListener("click", function () { open(el.currentSrc || el.src, el.alt); });
+    });
+    closeBtn.addEventListener("click", close);
+    lightbox.addEventListener("click", function (e) { if (e.target === lightbox) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
   }
 
   /* ---------------- scroll progress rail ---------------- */
@@ -356,6 +401,7 @@
       initCounters();
       initGallery();
       initFloors();
+      initLightbox();
       initRail();
       initForm();
       initYear();
