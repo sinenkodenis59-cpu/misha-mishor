@@ -402,7 +402,8 @@ svg{ display:block; }
   font-size:clamp(3.4rem,10vw,9rem);
   text-transform:uppercase;
 }
-.hero__title .line{ display:block; }
+.hero__title .line{ display:block; overflow:clip; }
+.hero__title .line > span{ display:inline-block; transform:translateY(115%); }
 .hero__row{
   display:flex;
   flex-wrap:wrap;
@@ -522,10 +523,10 @@ svg{ display:block; }
   font-size:clamp(2.4rem,5vw,3.6rem);
   display:flex;
   align-items:baseline;
-  gap:4px;
+  gap:.14em;
 }
 .stat b sup{ font-size:.4em; font-weight:600; opacity:.6; }
-.stat span{
+.stat > span{
   display:block;
   margin-top:8px;
   font-size:.78rem;
@@ -573,7 +574,11 @@ svg{ display:block; }
   overflow:clip;
 }
 .bleed__img{ position:absolute; inset:0; width:100%; height:120%; top:-10%; }
-.bleed__img img{ width:100%; height:100%; object-fit:cover; }
+/* .ph is a plain block div here (not combined with an explicitly-sized
+   class like .g-card), so it defaults to height:auto and collapses to 0
+   when its child <img> has no intrinsic size yet (e.g. before it loads) —
+   pin it to fill the parent's definite height instead of relying on flow. */
+.bleed__img .ph{ position:absolute; inset:0; }
 .bleed::after{
   content:"";
   position:absolute; inset:0;

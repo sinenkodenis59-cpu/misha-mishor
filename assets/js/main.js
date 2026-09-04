@@ -154,23 +154,37 @@
 
   /* ---------------- split text into lines/words for reveal ---------------- */
   function splitLines(el) {
+    // One clip+slide mask around the whole heading rather than one per word:
+    // a per-word block forces one word per visual line (a multi-word heading
+    // would stack vertically instead of wrapping normally). The inner span
+    // still wraps onto multiple visual lines by itself when the heading is
+    // long; this just reveals it as a single unit instead of staggering
+    // per line, which would need actual line-break detection to do right.
     var text = el.textContent.trim();
-    var words = text.split(/\s+/);
     el.textContent = "";
-    words.forEach(function (w, i) {
-      var line = document.createElement("span");
-      line.className = "line";
-      var inner = document.createElement("span");
-      inner.textContent = w + (i < words.length - 1 ? " " : "");
-      line.appendChild(inner);
-      el.appendChild(line);
-    });
+    var line = document.createElement("span");
+    line.className = "line";
+    var inner = document.createElement("span");
+    inner.textContent = text;
+    line.appendChild(inner);
+    el.appendChild(line);
   }
 
   function initTextReveals() {
     document.querySelectorAll(".reveal-lines").forEach(function (el) {
       splitLines(el);
-      gsap.to(el.querySelectorAll(".line > span"), {
+      var spans = el.querySelectorAll(".line > span");
+      // The CSS hidden state (transform:translateY(115%)) is a plain CSS
+      // percentage. GSAP reads the resolved matrix and treats it as a fixed
+      // pixel offset it doesn't own, then composes its own yPercent on top of
+      // it instead of replacing it — so tweening yPercent to 0 only ever
+      // removes GSAP's own contribution and converges back on that original
+      // CSS offset, leaving the text permanently stuck hidden. Clearing the
+      // inline transform first removes that baseline so gsap.set/to have a
+      // clean slate to compute yPercent from.
+      spans.forEach(function (s) { s.style.transform = "none"; });
+      gsap.set(spans, { yPercent: 115 });
+      gsap.to(spans, {
         yPercent: 0,
         duration: 1.1,
         ease: "power4.out",
@@ -199,11 +213,17 @@
 
   /* ---------------- hero intro timeline ---------------- */
   function initHeroIntro() {
+    // Same GSAP yPercent/CSS-percent cache mismatch as splitLines() below —
+    // clear the CSS-authored transform first so gsap.set/to have a clean
+    // baseline, otherwise the tween converges back on the hidden offset.
+    var heroSpans = document.querySelectorAll(".hero__title .line > span");
+    heroSpans.forEach(function (s) { s.style.transform = "none"; });
+    gsap.set(heroSpans, { yPercent: 115 });
+
     var tl = gsap.timeline({ delay: 0.15 });
     tl.to(".hero__title .line > span", { yPercent: 0, duration: 1.3, ease: "power4.out", stagger: 0.08 })
       .to(".hero__location", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, "-=0.9")
-      .to(".hero__row [data-reveal]", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08 }, "-=0.7")
-      .to(".site-header", { opacity: 1, duration: 0.6 }, "-=1.1");
+      .to(".hero__row [data-reveal]", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08 }, "-=0.7");
 
     gsap.to(".hero__media img", {
       yPercent: 12,
