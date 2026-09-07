@@ -255,11 +255,11 @@ svg{ display:block; }
   transition:right var(--dur-s) var(--ease-out);
 }
 .nav-desktop a:hover::after{ right:0; }
-@media (min-width:900px){ .nav-desktop{ display:flex; } }
+@media (min-width:1180px){ .nav-desktop{ display:flex; } }
 
 .header-actions{ display:flex; align-items:center; gap:18px; }
 .header-actions [data-show-desktop]{ display:none; }
-@media (min-width:900px){ .header-actions [data-show-desktop]{ display:inline-flex; } }
+@media (min-width:1180px){ .header-actions [data-show-desktop]{ display:inline-flex; } }
 .btn-burger{
   width:44px; height:44px;
   display:flex; align-items:center; justify-content:center;
@@ -277,7 +277,7 @@ svg{ display:block; }
 .btn-burger.is-open::before{ transform:translateY(0) rotate(45deg); }
 .btn-burger.is-open::after{ transform:translateY(0) rotate(-45deg); }
 .btn-burger.is-open span{ opacity:0; }
-@media (min-width:900px){ .btn-burger{ display:none; } }
+@media (min-width:1180px){ .btn-burger{ display:none; } }
 
 .btn{
   display:inline-flex;
@@ -399,7 +399,11 @@ svg{ display:block; }
   max-width:32ch;
 }
 .hero__title{
-  font-size:clamp(3.4rem,10vw,9rem);
+  /* Bounded by both vw and vh — a wide-but-short viewport (common laptop
+     resolutions like 1366x768) would otherwise size purely off width and
+     the 3-line title would grow taller than the hero has room for,
+     pushing its top up past the fixed header. */
+  font-size:clamp(2.75rem, min(9vw, 12vh), 9rem);
   text-transform:uppercase;
 }
 .hero__title .line{ display:block; overflow:clip; }
